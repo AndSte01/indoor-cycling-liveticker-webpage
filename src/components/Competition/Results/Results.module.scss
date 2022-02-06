@@ -1,0 +1,13 @@
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/mixins";
+
+.results_container {
+    margin-top: 20px;
+    display: flex;
+
+    @include media-breakpoint-down(xl) {
+        margin-top: 0;
+        width: auto;
+    }
+}

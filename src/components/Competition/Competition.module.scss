@@ -1,0 +1,35 @@
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/mixins";
+
+.up_button {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    @include media-breakpoint-down(xl) {
+        width: auto;
+        align-items: flex-start;
+        padding-top: 10px;
+    }
+}
+
+.up_button_container {
+    margin-top: 10px;
+    height: 40px;
+    width: 40px;
+    border-color: transparent;
+    color: rgba($black, .5);
+
+    @include media-breakpoint-down(xl) {
+        margin-top: 0;
+        height: 30px;
+        width: auto;
+    }
+
+    :hover {
+        color: $black;
+    }
+}

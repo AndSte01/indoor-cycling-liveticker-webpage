@@ -1,0 +1,20 @@
+[
+    {
+        "name": "Testing provider",
+        "apiUrl": "http://Localhost/api/rest?kwd=%s&",
+        "sseUrl": "http://Localhost/api/sse?kwd=%s&",
+        "apiVersion": 1
+    },
+    {
+        "name": "Testing provider",
+        "apiUrl": "http://Localhost/api/rest?kcat=%s&",
+        "sseUrl": "http://Localhost/api/sse?kcat=%s&",
+        "apiVersion": 1
+    },
+    {
+        "name": "Testing provider",
+        "apiUrl": "http://Localhost/api/rest/%s?",
+        "sseUrl": "http://Localhost/api/sse/%s?",
+        "apiVersion": 1
+    }
+]

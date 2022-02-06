@@ -1,0 +1,1 @@
+export { default as OverviewCompetitionLi } from "./OverviewCompetitionLi/OverviewCompetitionLi";

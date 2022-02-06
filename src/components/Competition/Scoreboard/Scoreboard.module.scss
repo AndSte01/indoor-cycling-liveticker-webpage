@@ -1,0 +1,139 @@
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/mixins";
+
+/*
+@mixin simple_transition {
+    transition: ease all 0.3s;
+}
+
+.isMin {
+    @include simple_transition;
+}
+
+.isReg {
+    @include simple_transition;
+}
+*/
+
+.card {
+    min-height: fit-content;
+    width: 450px;
+    max-width: 450px;
+
+    &.isMin {
+        height: 92px;
+    }
+
+    &.isReg {
+        height: 300px;
+    }
+}
+
+p {
+    margin: 0;
+}
+
+.header_container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 100%;
+
+    &.isReg {
+        font-size: 1.25rem;
+    }
+
+    &.isMin {
+        color: $text-muted;
+    }
+
+
+    .head_num {
+        width: 70px;
+        flex-shrink: 0;
+    }
+
+    .head_cat {
+        overflow-y: hidden;
+        overflow: auto;
+        white-space: nowrap;
+        font-weight: 350;
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
+
+    .head_cat::-webkit-scrollbar {
+        display: none;
+    }
+
+    .head_time {
+        width: 70px;
+        text-align: right;
+        flex-shrink: 0;
+    }
+}
+
+.body_container {
+    flex: 1;
+    display: flex;
+    width: 100%;
+
+    &.isReg {
+        flex-direction: column;
+        margin-top: 10px;
+        text-align: center;
+    }
+}
+
+.bdy_contestant {
+    margin: auto;
+    overflow: auto;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+
+    &.isMin {
+        white-space: nowrap;
+        overflow-y: hidden;
+        font-size: 1.5rem;
+        max-height: 1.5em;
+    }
+
+    &.isReg {
+        overflow-x: hidden;
+        margin-bottom: 20px;
+        max-height: 2.6em;
+        font-size: 2.25rem;
+        line-height: 1.3em;
+    }
+}
+
+.bdy_contestant::-webkit-scrollbar {
+    display: none;
+}
+
+.bdy_score {
+    flex-grow: 0;
+
+    &.isMin {
+        margin-left: 20px;
+        font-size: 1.5rem;
+    }
+
+    &.isReg {
+        margin-top: 10px;
+        font-size: 3.5rem;
+        font-weight: 400;
+        line-height: 1.2;
+    }
+}
+
+.bdy_score_total {
+    font-size: 1.25rem;
+    flex-grow: 0;
+    margin-bottom: 5px;
+
+    &.isMin {
+        display: none;
+    }
+}

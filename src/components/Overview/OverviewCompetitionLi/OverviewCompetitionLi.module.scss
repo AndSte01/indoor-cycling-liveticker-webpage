@@ -1,0 +1,58 @@
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/mixins";
+
+.container {
+    padding: 15px 0 15px !important;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    text-decoration: none;
+}
+
+.name {
+    padding-bottom: 2px;
+    text-decoration: none;
+    font-size: 1.5rem;
+    //transition: ease all .3s;
+
+    @include media-breakpoint-down(lg) {
+        font-size: 1.25rem;
+    }
+}
+
+.date_location_container {
+    display: flex;
+    align-items: center;
+}
+
+.date {
+    flex-grow: 1;
+}
+
+.overflow {
+    white-space: nowrap;
+    overflow: hidden;
+    flex-grow: 1;
+    flex-shrink: 1;
+}
+
+.LiveBadge {
+    &.isMin {
+        display: none;
+        margin-left: 20px;
+
+        @include media-breakpoint-down(md) {
+            display: inline;
+        }
+    }
+
+    &.isMax {
+        display: inline;
+        margin-left: 10px;
+
+        @include media-breakpoint-down(md) {
+            display: none;
+        }
+    }
+}
