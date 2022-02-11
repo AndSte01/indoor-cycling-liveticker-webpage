@@ -3,7 +3,6 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { Navbar } from "react-bootstrap";
 import { useEffect } from "react";
-import { useLocation } from 'react-router-dom';
 import { useState } from "react";
 
 // icons
@@ -12,34 +11,37 @@ import { BsInfoCircle, BsListUl, BsArrowLeftSquare, BsCodeSlash } from "react-ic
 // styling
 import styling from "./Navigation.module.scss"
 
+// redux
+import { useSelector } from 'react-redux'
+
 function Navigation(props) {
 
   const [icon, setIcon] = useState(new BsListUl());
 
-  const location = useLocation()
+  const title = useSelector((state) => state.navbar.title)
 
   useEffect(() => {
-    if (location.pathname === "/") {
+    if (title === "") {
       setIcon(new BsListUl());
     } else {
       setIcon(new BsArrowLeftSquare());
     }
-  }, [location]);
+  }, [title]);
 
   return (
     <Navbar sticky="top" className={styling.navbar + " top"}>
-      <Link to="/">
+      <Link aria-label="Home" to="/">
         <div className={styling.nav_element}>
           {icon}
         </div>
       </Link>
-      <div className={styling.nav_text + " overflow-y"}>{props.title}</div>
+      <div className={styling.nav_text + " overflow-y"}>{title}</div>
       {props.dev === "true" &&
-        <Link to="/dev">
+        <Link aria-label="Developer tools" to="/dev">
           <div className={styling.nav_element}><BsCodeSlash /></div>
         </Link>
       }
-      <Link to="/about">
+      <Link aria-label="About" to="/about">
         <div className={styling.nav_element}><BsInfoCircle /></div>
       </Link>
     </Navbar>

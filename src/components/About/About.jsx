@@ -1,10 +1,18 @@
 import React from "react";
 import { useEffect } from "react";
 
+// redux
+import { useDispatch } from 'react-redux'
+
+// slices
+import { setTitle } from "../../features/navbarSlice";
+
 function About(props) {
+    const dispatch = useDispatch()
+
     useEffect(() => {
-        props.navbarHandler("About");
-    }, [null]);
+        dispatch(setTitle("About"));
+    })
 
     return (
         <div>

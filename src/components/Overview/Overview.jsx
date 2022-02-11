@@ -5,10 +5,18 @@ import React, { useEffect } from "react";
 import { ListGroup } from "react-bootstrap";
 import { OverviewCompetitionLi } from "./";
 
+// redux
+import { useDispatch } from "react-redux";
+
+// slices
+import { setTitle } from "../../features/navbarSlice";
+
 function Overview(props) {
+    const dispatch = useDispatch();
+
     useEffect(() => {
-        props.navbarHandler("");
-    }, [null]);
+        dispatch(setTitle(""));
+    })
 
     return (
         <div>

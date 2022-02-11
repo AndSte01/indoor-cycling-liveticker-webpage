@@ -15,3 +15,6 @@ Thinking in React
 
 Swiping
 - https://github.com/FormidableLabs/react-swipeable
+
+Redux + react-table
+- https://codesandbox.io/s/9y7kg?file=/src/Table.js

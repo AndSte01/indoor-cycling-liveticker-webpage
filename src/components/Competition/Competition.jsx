@@ -8,13 +8,23 @@ import { ScoreboardList } from "./";
 import { Results } from "./";
 import { BsChevronUp, BsChevronDown } from "react-icons/bs"
 
+import { LiveTickerCompetitor, LiveTickerCategory } from "../../api/LiveTickerApi";
+
+// redux
+import { useDispatch } from 'react-redux'
+
+// slices
+import { setTitle } from "../../features/navbarSlice";
+
 // styling
 import styling from "./Competition.module.scss";
 
 function Competition(props) {
+    const dispatch = useDispatch()
+
     useEffect(() => {
-        props.navbarHandler("Competition");
-    }, [null]);
+        dispatch(setTitle("Competition"));
+    })
 
     const [ScoreboardSize, setScoreboardSize] = useState(window.innerWidth >= 992 ? "reg" : "min");
     const [ButtonIcon, setButtonIcon] = useState(window.innerWidth >= 992 ? new BsChevronUp() : new BsChevronDown());
@@ -30,29 +40,11 @@ function Competition(props) {
         }
     };
 
-    // TODO Stuff that belongs to api
-
-    function Category(id, name, status, competitors) {
-        this.id = id;
-        this.name = name;
-        this.status = status;
-        this.competitors = competitors;
-    }
-
-    function Competitor(id, no, name, club, score_submitted, score_accomplished) {
-        this.id = id;
-        this.no = no;
-        this.name = name;
-        this.club = club;
-        this.score_submitted = score_submitted;
-        this.score_accomplished = score_accomplished;
-    }
-
-    var cats = [new Category(
+    var cats = [new LiveTickerCategory(
         1,
         "2er Kunstfahren Juniorinnen U19",
         "upcoming",
-        [new Competitor(
+        [new LiveTickerCompetitor(
             104,
             104,
             "Carla Mayr / Sarah Schottky",
@@ -60,7 +52,7 @@ function Competition(props) {
             20.06,
             (20.06 * 0.75).toFixed(2)
         ),
-        new Competitor(
+        new LiveTickerCompetitor(
             105,
             105,
             "Melanie Denise Kühnel / Magdalena Seidl",
@@ -68,7 +60,7 @@ function Competition(props) {
             35.10,
             (35.10 * 0.75).toFixed(2)
         ),
-        new Competitor(
+        new LiveTickerCompetitor(
             106,
             106,
             "Klara Gebhardt / Marlene Kieser",
@@ -76,7 +68,7 @@ function Competition(props) {
             67.60,
             (67.60 * 0.75).toFixed(2)
         ),
-        new Competitor(
+        new LiveTickerCompetitor(
             107,
             107,
             "Katharina Hemme / Lilliane Krüger",
@@ -84,7 +76,7 @@ function Competition(props) {
             71.60,
             (71.60 * 0.75).toFixed(2)
         ),
-        new Competitor(
+        new LiveTickerCompetitor(
             108,
             108,
             "Lea Steger / Emily Brenner",
@@ -93,11 +85,11 @@ function Competition(props) {
             (113.90 * 0.75).toFixed(2)
         )]
     ),
-    new Category(
+    new LiveTickerCategory(
         2,
         "2er Kunstfahren Junioren U19 (offen)",
         "ongoing",
-        [new Competitor(
+        [new LiveTickerCompetitor(
             109,
             109,
             "Benedikt Demmeler / Maritu Mäder",
@@ -105,7 +97,7 @@ function Competition(props) {
             40.80,
             (40.80 * 0.75).toFixed(2)
         ),
-        new Competitor(
+        new LiveTickerCompetitor(
             110,
             110,
             "Markus Wechner / Alexander Stadler",
@@ -114,11 +106,11 @@ function Competition(props) {
             (109.90 * 0.75).toFixed(2)
         )]
     ),
-    new Category(
+    new LiveTickerCategory(
         3,
         "6er Kunstfahren Elite (offen)",
         "done",
-        [new Competitor(
+        [new LiveTickerCompetitor(
             111,
             111,
             "RSV Steinhöring",
@@ -140,9 +132,7 @@ function Competition(props) {
                     {ButtonIcon}
                 </div>
             </div>
-            <Results results={cats}>
-
-            </Results>
+            <Results results={cats} />
         </div>
     );
 }

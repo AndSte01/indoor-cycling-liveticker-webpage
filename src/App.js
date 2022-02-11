@@ -16,20 +16,12 @@ import {
 } from "./components";
 
 // config
-import providers from "./config/providers.json";
+//import providers from "./config/providers.json";
 
 class App extends React.Component {
     constructor(props) {
         super(props);
         this.state = { title: "" };
-
-        this.navbarHandler = this.navbarHandler.bind(this);
-    }
-
-    navbarHandler(Title) {
-        this.setState({
-            title: Title
-        });
     }
 
     render() {
@@ -39,10 +31,10 @@ class App extends React.Component {
                 <div className="center">
                     <Container className="content">
                         <Routes>
-                            <Route path="/" element={<Overview navbarHandler={this.navbarHandler} />} />
-                            <Route path="/dev" element={<DevPanel navbarHandler={this.navbarHandler} />} />
-                            <Route path="/competition" element={<Competition navbarHandler={this.navbarHandler} />} />
-                            <Route path="/about" element={<About navbarHandler={this.navbarHandler} />} />
+                            <Route path="/" element={<Overview />} />
+                            <Route path="/dev" element={<DevPanel />} />
+                            <Route path="/competition" element={<Competition />} />
+                            <Route path="/about" element={<About />} />
                         </Routes>
                     </Container>
                     <Footer />
